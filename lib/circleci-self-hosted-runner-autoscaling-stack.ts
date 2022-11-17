@@ -130,10 +130,10 @@ export class CircleciSelfHostedRunnerAutoscalingStack extends Stack {
         handler: "index.handler",
         environment: {
           SECRET_NAME: circleCISecret.secretName,
-          SECRET_REGION: props?.env?.region || "us-west-2",
+          SECRET_REGION: props?.env?.region || "us-east-1",
           AUTO_SCALING_MAX: props!!.maxInstances,
           AUTO_SCALING_GROUP_NAME: circleCiAutoScalingGroup.autoScalingGroupName,
-          AUTO_SCALING_GROUP_REGION: props?.env?.region || "us-west-2",
+          AUTO_SCALING_GROUP_REGION: props?.env?.region || "us-east-1",
         },
         timeout: Duration.minutes(1),
         role: inferenceLambdaRole,
